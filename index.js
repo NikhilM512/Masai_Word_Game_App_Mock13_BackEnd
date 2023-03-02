@@ -14,7 +14,11 @@ app.use(express.json());
 
 app.get("/",(req,res)=>{
     let length=Math.random()*9;
-    let randomStr=randomstring.generate(length);
+    let randomStr=randomstring.generate({
+        length,
+        charset: 'alphabetic',
+        capitalization: 'uppercase'
+      });
     res.send({"msg":"Welcome To Masai Word Game API","res":randomStr})
 })
 
