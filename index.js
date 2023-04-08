@@ -3,16 +3,18 @@ const cors=require("cors");
 const dotenv=require("dotenv");
 const { userRouter } = require("./Routes/User.route");
 const { connection } = require("./Config/db");
+var randomstring = require("randomstring");
 dotenv.config();
 const PORT=process.env.PORT || 7000;
 
-var randomstring = require("randomstring");
+
 
 const app=express();
 app.use(cors({origin:"*"}));
 app.use(express.json());
 
 app.get("/",(req,res)=>{
+    let randomstring = require("randomstring");
     let length=Math.random()*9;
     let randomStr=randomstring.generate({
         length,
