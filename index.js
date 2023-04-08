@@ -9,7 +9,7 @@ const PORT=process.env.PORT || 7000;
 var randomstring = require("randomstring");
 
 const app=express();
-app.use(cors());
+app.use(cors({origin:"*"}));
 app.use(express.json());
 
 app.get("/",(req,res)=>{
